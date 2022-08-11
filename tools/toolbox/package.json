@@ -1,0 +1,12 @@
+{
+  "name": "@demo/toolbox",
+  "version": "1.0.0",
+  "description": "An example toolchain used to build projects in this repo",
+  "license": "MIT",
+  "devDependencies": {
+    "@umijs/fabric": "~3.0.0"
+  },
+  "gitHooks": {
+    "commit-msg": "fabric verify-commit"
+  }
+}

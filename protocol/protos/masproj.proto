@@ -1,0 +1,16 @@
+syntax "proto3";
+
+message ItemData {
+    // Usage
+    // Python
+    // item_data = ItemData()
+    // item_data.StringItem = StringItem()
+    // if item_data.StringItem:
+    //      pass
+    oneof AnyItemData {
+        string StringItem = 1;
+        double DoubleItem = 2;
+        // ...
+    }
+}
+

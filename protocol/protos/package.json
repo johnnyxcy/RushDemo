@@ -1,0 +1,21 @@
+{
+  "name": "@demo/protos",
+  "version": "1.0.0",
+  "description": "Protocol definitions",
+  "main": "",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "proto"
+  ],
+  "author": {
+    "name": "Chongyi Xu",
+    "email": "johnny.xcy1997@outlook.com"
+  },
+  "license": "MIT"
+}
