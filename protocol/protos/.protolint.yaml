@@ -1,0 +1,68 @@
+---
+# https://github.com/yoheimuta/protolint/blob/master/_example/config/.protolint.yaml
+# Lint directives.
+lint:
+    # # Linter files to ignore.
+    # ignores:
+    #   - id: MESSAGE_NAMES_UPPER_CAMEL_CASE
+    #     files:
+    #       # NOTE: UNIX paths will be properly accepted by both UNIX and Windows.
+    #       - _example/proto/simple.proto
+    #   - id: ENUM_NAMES_UPPER_CAMEL_CASE
+    #     files:
+    #       - path/to/foo.proto
+
+    # # Linter files to walk.
+    # files:
+    #   # The specific files to exclude.
+    #   exclude:
+    #     # NOTE: UNIX paths will be properly accepted by both UNIX and Windows.
+    #     - path/to/file
+
+    # # Linter directories to walk.
+    # directories:
+    #   # The specific directories to exclude.
+    #   exclude:
+    #     # NOTE: UNIX paths will be properly accepted by both UNIX and Windows.
+    #     - path/to/dir
+
+    rules:
+        all_default: true
+
+        add:
+            # region all_default: true
+            - ENUM_FIELD_NAMES_PREFIX
+            - ENUM_FIELD_NAMES_UPPER_SNAKE_CASE
+            - ENUM_FIELD_NAMES_ZERO_VALUE_END_WITH
+            - ENUM_NAMES_UPPER_CAMEL_CASE
+            - FILE_NAMES_LOWER_SNAKE_CASE
+            - FIELD_NAMES_LOWER_SNAKE_CASE
+            - IMPORTS_SORTED
+            - MESSAGE_NAMES_UPPER_CAMEL_CASE
+            - ORDER
+            - PACKAGE_NAME_LOWER_CASE
+            - RPC_NAMES_UPPER_CAMEL_CASE
+            - SERVICE_NAMES_UPPER_CAMEL_CASE
+            - REPEATED_FIELD_NAMES_PLURALIZED
+            - QUOTE_CONSISTENT
+            - INDENT
+            - PROTO3_FIELDS_AVOID_REQUIRED
+            - PROTO3_GROUPS_AVOID
+            # endregion
+
+    # Linter rules option.
+    rules_option:
+        # MAX_LINE_LENGTH rule option.
+        max_line_length:
+            # Enforces a maximum line length
+            max_chars: 80
+            # Specifies the character count for tab characters
+            tab_chars: 4
+
+        # INDENT rule option.
+        indent:
+            # Available styles are 4(4-spaces), 2(2-spaces) or tab.
+            style: 4
+            # Specifies if it should stop considering and inserting new lines at the appropriate positions
+            # when the inner elements are on the same line. Default is false.
+            not_insert_newline: true

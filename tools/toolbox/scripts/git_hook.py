@@ -9,8 +9,8 @@ import pathlib
 _toolbox_root = pathlib.Path(__file__).parent.parent
 sys.path.append(_toolbox_root.as_posix())
 
-from utils.argparser_utils import ArgumentParser
-from utils.logging_utils import logger
+from src.argparser_utils import ArgumentParser
+from src.logging_utils import logger
 
 
 def git_hook(hook: str) -> None:

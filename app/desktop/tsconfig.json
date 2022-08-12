@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        /* 路径 */
+        "baseUrl": ".",
+        "paths": {
+            "@demo/desktop/*": ["./src/*"]
+        },
+        "target": "es2021",
+        "module": "commonjs",
+        "lib": ["dom", "es2021"],
+        "declaration": true,
+        "declarationMap": true,
+        "noEmit": true,
+        "jsx": "react",
+        "strict": true,
+        "pretty": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        /* Additional Checks */
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "useUnknownInCatchVariables": false,
+        /* Module Resolution Options */
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "allowJs": true
+    },
+    "exclude": []
+}

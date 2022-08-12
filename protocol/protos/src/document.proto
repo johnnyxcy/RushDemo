@@ -1,0 +1,36 @@
+// document proto
+syntax = "proto3";
+package demo.document;
+
+// ItemMeta, Meta info of item
+message ItemMeta {
+    // Name of the item
+    string item_name = 1;
+
+    // type of the item
+    string item_type = 2;
+}
+
+// ItemData, could be any of one the listing items
+message ItemData {
+    // meta-info
+    ItemMeta meta = 1;
+
+    // one of data pojo
+    oneof AnyItemData {
+        // String typed item
+        string string_item = 2; 
+        // Double typed item
+        double double_item = 3; 
+    }
+}
+
+// document service
+service DocumentService {
+
+    // Bi-direction stream for ItemData
+    rpc OpeItem(stream ItemData) returns(stream ItemData) {
+        // client should write to server with any modification on item data
+        // server should write to client with any modification on item data
+    }
+}

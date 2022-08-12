@@ -4,5 +4,5 @@
     "**/.mypy_cache": true,
     "**/.pytest_cache": true
   },
-  "cSpell.words": ["argparser"]
+  "cSpell.words": ["argparser", "reduxjs"]
 }
