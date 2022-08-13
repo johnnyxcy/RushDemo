@@ -1,0 +1,81 @@
+# Projectwise configuration
+[tool.poetry]
+name = "rush-demo"
+version = "1.0.0"
+description = "An example starter for rushjs with python modules"
+authors = ["Chongyi Xu <johnny.xcy1997@outlook.com>"]
+
+[tool.poetry.dependencies]
+python = "3.8.10"
+colorama = "^0.4.5"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.971"
+yapf = "^0.32.0"
+types-colorama = "^0.4.15"
+recommonmark = "^0.7.1"
+isort = "^5.10.1"
+toml = "^0.10.2"
+pyjson5 = "^1.6.1"
+
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+[tool.mypy]
+python_version = "3.8"
+exclude = [".venv", "__pycache__"]
+plugins = ["pydantic.mypy"]
+
+pretty = false
+
+show_error_context = true
+show_column_numbers = true
+show_absolute_path = true
+
+# Disallow
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+allow_redefinition = false
+implicit_reexport = false
+
+# Strict typing
+strict_equality = true
+strict_optional = true
+
+# Import Resolution
+namespace_packages = true
+explicit_package_bases = true
+follow_imports = "normal"
+follow_imports_for_stubs = true
+
+warn_unreachable = true
+raise_exceptions = true
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fileds = true
+
+[tool.pyright]
+exclude = [".venv", "__pycache__"]
+
+[tool.isort]
+known_local_folder = ["libpy", "assets"]
+force_alphabetical_sort_within_sections = true
+
+[tool.pytest.ini_options]
+norecursedirs = ["node_modules", ".venv"]
+testpaths= ["tests"]
+log_cli = 1
+log_cli_level = "DEBUG"
+log_cli_date_format = "%x %X"
+log_cli_format = "[pytest][%(asctime)s][%(levelname)s] %(message)s"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -382,14 +382,7 @@
      * to projects. If this property is not specified, any tag is allowed. This
      * list is useful in preventing typos when specifying tags for projects.
      */
-    "allowedProjectTags": [
-        "app",
-        "python",
-        "cpp",
-        "typescript",
-        "tools",
-        "protocol"
-    ],
+    "allowedProjectTags": ["app", "libraries", "tools", "protocol", "python", "cpp", "typescript"],
 
     /**
      * (Required) This is the inventory of projects to be managed by Rush.
@@ -476,6 +469,18 @@
             "projectFolder": "app/desktop",
             "reviewCategory": "app",
             "tags": ["app", "typescript"]
+        },
+        {
+            "packageName": "@demo/bulbasaur",
+            "projectFolder": "libraries/bulbasaur",
+            "reviewCategory": "libraries",
+            "tags": ["typescript", "libraries"]
+        },
+        {
+            "packageName": "@demo/charmander",
+            "projectFolder": "libraries/charmander",
+            "reviewCategory": "libraries",
+            "tags": ["python", "libraries"]
         },
         {
             "packageName": "@demo/toolbox",

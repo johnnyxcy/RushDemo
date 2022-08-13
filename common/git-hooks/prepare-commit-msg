@@ -5,10 +5,6 @@ command_exists () {
   command -v "$1" >/dev/null 2>&1
 }
 
-has_hook_script () {
-  [ -f package.json ] && cat package.json | grep -q "\"$1\"[[:space:]]*:"
-}
-
 # OS X and Linux only
 load_nvm () {
   # If nvm is not loaded, load it
@@ -26,13 +22,10 @@ run_nvm () {
 
 cd "."
 
-# Check if prepare-commit-msg is defined, skip if not
-has_hook_script prepare-commit-msg || exit 0
-
 # Add common path where Node can be found
 # Brew standard installation path /usr/local/bin
 # Node standard installation path /usr/local
-export PATH="$PATH:/usr/local/bin:/usr/local"
+export PATH="$PATH:/usr/local/bin:/usr/local:~/.local/bin"
 
 # Try to load nvm using path of standard installation
 load_nvm /Users/johnnyxcy/.nvm
@@ -42,7 +35,7 @@ run_nvm
 export GIT_PARAMS="$*"
 
 # Run hook
-python "tools/toolbox/scripts/git_hooks.py" prepare-commit-msg || {
+poetry run python "tools/toolbox/scripts/git_hooks.py" prepare-commit-msg || {
   echo
   echo "prepare-commit-msg hook failed (cannot be bypassed with --no-verify due to Git specs)"
   exit 1

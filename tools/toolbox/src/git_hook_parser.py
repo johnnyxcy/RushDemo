@@ -1,26 +1,20 @@
-#!/usr/bin/python
 import os
+import pathlib
 import platform
 import subprocess
-import sys
-import json
-import pathlib
 
-_toolbox_root = pathlib.Path(__file__).parent.parent
-sys.path.append(_toolbox_root.as_posix())
-
+import pyjson5
 from src.argparser_utils import ArgumentParser
 from src.logging_utils import logger
 
 
 def git_hook(hook: str) -> None:
-
+    _toolbox_root = pathlib.Path(__file__).parent.parent
     pkg = _toolbox_root.joinpath('package.json')
     if not pkg.exists():
-        raise FileNotFoundError(
-            f'Package.json not found in {pkg.parent.as_posix()}')
+        raise FileNotFoundError(f'Package.json not found in {pkg.parent.as_posix()}')
 
-    hooks = json.loads(open(pkg, encoding='utf-8').read()).get('gitHooks')
+    hooks = pyjson5.loads(open(pkg, encoding='utf-8').read()).get('gitHooks')
     if not hooks:
         logger.debug('No gitHooks found')
         exit(0)
@@ -54,17 +48,10 @@ def git_hook(hook: str) -> None:
 def cli() -> None:
     parser = ArgumentParser(
         description=
-        '[toolbox.scripts.git_hook] - process git hooks with configured "gitHooks" arguments in package.json'
-    )
+        '[toolbox.scripts.git_hook] - process git hooks with configured "gitHooks" arguments in package.json')
     parser.add_argument(
         'HOOK',
         type=str,
-        help=
-        'Name of the git hook, such as `pre-commit` or `commit-msg`, see README.md for more details'
-    )
+        help='Name of the git hook, such as `pre-commit` or `commit-msg`, see README.md for more details')
     parsed_args = parser.parse_args()
     git_hook(hook=parsed_args.HOOK)
-
-
-if __name__ == '__main__':
-    cli()

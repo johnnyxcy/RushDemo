@@ -1,6 +1,7 @@
 import logging
 import sys
 import typing
+
 import colorama
 
 
@@ -50,8 +51,7 @@ class _LoggerSingleton:
 
     def __new__(cls) -> logging.Logger:
         if cls._inst is None:
-            cls._inst = logging.Logger(name='toolbox.utils.logger',
-                                       level=logging.DEBUG)
+            cls._inst = logging.Logger(name='toolbox.utils.logger', level=logging.DEBUG)
             handler = AsciiStreamHandler(stream=sys.stdout)
             handler.setFormatter(logging.Formatter('%(message)s'))
             cls._inst.addHandler(handler)

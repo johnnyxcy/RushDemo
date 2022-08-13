@@ -1,0 +1,15 @@
+{
+    "name": "@demo/bulbasaur",
+    "version": "1.0.0",
+    "description": "Typescript library",
+    "author": {
+        "name": "Chongyi Xu",
+        "email": "johnny.xcy1997@outlook.com"
+    },
+    "scripts": {
+        "postinstall": "npx sort-package-json"
+    },
+    "devDependencies": {
+        "@demo/toolbox": "workspace:^1.0.0"
+    }
+}

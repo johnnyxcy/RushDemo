@@ -25,7 +25,7 @@ cd "."
 # Add common path where Node can be found
 # Brew standard installation path /usr/local/bin
 # Node standard installation path /usr/local
-export PATH="$PATH:/usr/local/bin:/usr/local"
+export PATH="$PATH:/usr/local/bin:/usr/local:~/.local/bin"
 
 # Try to load nvm using path of standard installation
 load_nvm /Users/johnnyxcy/.nvm
@@ -35,7 +35,7 @@ run_nvm
 export GIT_PARAMS="$*"
 
 # Run hook
-python "tools/toolbox/scripts/git_hook.py" commit-msg || {
+poetry run python "tools/toolbox/scripts/git_hooks.py" commit-msg || {
   echo
   echo "commit-msg hook failed (add --no-verify to bypass)"
   exit 1
